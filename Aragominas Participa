@@ -1,84 +1,109 @@
-<index.html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aragominas Participa</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      background-color: white;
-      padding: 2rem;
-      max-width: 600px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    label {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-    input, textarea, select, button {
-      padding: 0.75rem;
-      margin-top: 0.5rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #28a745;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Sugestões</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        /* Estilizando a opção de anonimato */
+        .anonimo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Aragominas Participa</h1>
-    <p>Ajude a construir uma cidade melhor! Deixe suas ideias, sugestões ou relatem problemas na sua comunidade.</p>
-    <form action="#" method="post">
-      <label for="name">Nome Completo:</label>
-      <input type="text" id="name" name="name" placeholder="Seu nome" required>
+    <div class="form-container">
+        <h2>Reclamações e Sugestões</h2>
+        <p>Escolha se quer enviar anonimamente ou se identificar.</p>
 
-      <label for="email">E-mail (opcional):</label>
-      <input type="email" id="email" name="email" placeholder="Seu e-mail">
+        <form action="https://formspree.io/f/mgvolkpo">
+            <div class="anonimo-container">
+                <input type="checkbox" id="anonimo" name="anonimo" onchange="toggleAnonimo()">
+                <label for="anonimo">Enviar como anônimo</label>
+            </div>
 
-      <label for="topic">Assunto:</label>
-      <select id="topic" name="topic" required>
-        <option value="">Selecione um assunto</option>
-        <option value="sugestao">Sugestão</option>
-        <option value="problema">Relatar Problema</option>
-        <option value="elogio">Elogio</option>
-        <option value="outros">Outros</option>
-      </select>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name">
 
-      <label for="message">Mensagem:</label>
-      <textarea id="message" name="message" rows="5" placeholder="Descreva sua sugestão ou relato" required></textarea>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email">
 
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <script>
+        function toggleAnonimo() {
+            var anonimo = document.getElementById("anonimo");
+            var nome = document.getElementById("name");
+            var email = document.getElementById("email");
+
+            if (anonimo.checked) {
+                nome.disabled = true;
+                email.disabled = true;
+                nome.value = "";
+                email.value = "";
+            } else {
+                nome.disabled = false;
+                email.disabled = false;
+            }
+        }
+    </script>
 </body>
 </html>
