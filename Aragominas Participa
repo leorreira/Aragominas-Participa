@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aragominas Participa</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: white;
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea, select, button {
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Aragominas Participa</h1>
+    <p>Ajude a construir uma cidade melhor! Deixe suas ideias, sugestões ou relatem problemas na sua comunidade.</p>
+    <form action="#" method="post">
+      <label for="name">Nome Completo:</label>
+      <input type="text" id="name" name="name" placeholder="Seu nome" required>
+
+      <label for="email">E-mail (opcional):</label>
+      <input type="email" id="email" name="email" placeholder="Seu e-mail">
+
+      <label for="topic">Assunto:</label>
+      <select id="topic" name="topic" required>
+        <option value="">Selecione um assunto</option>
+        <option value="sugestao">Sugestão</option>
+        <option value="problema">Relatar Problema</option>
+        <option value="elogio">Elogio</option>
+        <option value="outros">Outros</option>
+      </select>
+
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Descreva sua sugestão ou relato" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
